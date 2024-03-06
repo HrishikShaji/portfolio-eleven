@@ -1,9 +1,13 @@
 "use client";
 
+import { data } from "../lib/data";
+
 export const About = () => {
 	return (
-		<div className="h-screen w-full bg-neutral-700 flex justify-center items-center">
-			<h1 className="text-6xl text-white">ABOUT</h1>
+		<div className="px-10 w-full">
+			<p className="text-2xl mix-blend-difference text-white ">
+				{data.about.description}
+			</p>
 		</div>
 	);
 };
