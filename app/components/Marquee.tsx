@@ -36,23 +36,23 @@ export default function Marquee({
 				}
 				gsap.set(firstText.current, { xPercent: xPercent });
 				gsap.set(secondText.current, { xPercent: xPercent });
-				if (scroll) {
-					gsap.to(slider.current, {
-						scrollTrigger: {
-							trigger: document.documentElement,
-							scrub: 0.25,
-							start: 0,
-							end: window.innerHeight,
-							onUpdate: (e) => (direction = e.direction * -1),
-						},
-						x: "-500px",
-					});
-				}
 				xPercent += speed * direction;
 				requestRef.current = requestAnimationFrame(animate);
 			};
 
-			requestRef.current = requestAnimationFrame(animate);
+			if (scroll) {
+				gsap.to(slider.current, {
+					scrollTrigger: {
+						trigger: document.documentElement,
+						scrub: 1,
+						start: 0,
+						end: window.innerHeight,
+						onUpdate: (e) => (direction = e.direction * -1),
+					},
+					x: "-500px",
+				});
+				requestRef.current = requestAnimationFrame(animate);
+			}
 			return () => cancelAnimationFrame(requestRef.current);
 		}, slider);
 
@@ -67,7 +67,7 @@ export default function Marquee({
 					lineHeight: size,
 				}}
 				ref={firstText}
-				className=" relative   "
+				className="font-bebas relative  text-white "
 			>
 				{word}
 			</p>
@@ -77,7 +77,7 @@ export default function Marquee({
 					lineHeight: size,
 				}}
 				ref={secondText}
-				className="   absolute  top-0 left-[100%]"
+				className=" font-bebas  text-white absolute  top-0 left-[100%]"
 			>
 				{word}
 			</p>
