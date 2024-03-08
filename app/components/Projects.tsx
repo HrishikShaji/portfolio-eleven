@@ -12,7 +12,7 @@ export const Projects = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   const yValues = [
-    -250, -500, -350, -500, -700, -620, -580, -900, -640, -700, -900, -740,
+    -250, -500, -800, -500, -700, -1020, -580, -900, -640, -700, -900, -740,
   ];
 
   useEffect(() => {
