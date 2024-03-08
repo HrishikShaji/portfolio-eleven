@@ -12,7 +12,7 @@ export const Projects = () => {
 	const titleRef = useRef<HTMLHeadingElement>(null);
 
 	const yValues = [
-		-250, -500, -350, -500, -700, -620, -280, -160, -240, -400, -300, -240,
+		-250, -500, -350, -500, -700, -620, -580, -900, -640, -700, -900, -740,
 	];
 
 	useEffect(() => {
@@ -43,16 +43,16 @@ export const Projects = () => {
 	}, []);
 
 	const coordinates = [
-		{ top: "500px", left: "0px" },
-		{ top: "500px", left: "500px" },
-		{ top: "500px", left: "1000px" },
-		{ top: "1000px", left: "0px" },
+		{ top: "500px", left: "50px" },
+		{ top: "500px", left: "570px" },
+		{ top: "500px", left: "1100px" },
+		{ top: "1000px", left: "90px" },
 		{ top: "1000px", left: "500px" },
-		{ top: "1000px", left: "1000px" },
-		{ top: "1500px", left: "0px" },
-		{ top: "1500px", left: "500px" },
-		{ top: "1500px", left: "1000px" },
-		{ top: "2000px", left: "0px" },
+		{ top: "1000px", left: "1050px" },
+		{ top: "1500px", left: "150px" },
+		{ top: "1500px", left: "700px" },
+		{ top: "1500px", left: "1130px" },
+		{ top: "2000px", left: "70px" },
 		{ top: "2000px", left: "500px" },
 		{ top: "2000px", left: "1000px" },
 	];
