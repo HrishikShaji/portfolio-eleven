@@ -12,23 +12,11 @@ import { Skills } from "./components/Skills";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import { Projects } from "./components/Projects";
+import { Contact } from "./components/Contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    lenis.on("scroll", (e) => {});
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
   return (
     <main>
       <Image
@@ -43,6 +31,7 @@ export default function Home() {
       <Features />
       <Skills />
       <Projects />
+      <Contact />
     </main>
   );
 }
