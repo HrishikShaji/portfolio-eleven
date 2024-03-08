@@ -11,6 +11,7 @@ import { Eyes } from "./components/Eyes";
 import { Skills } from "./components/Skills";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import { Projects } from "./components/Projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,6 +44,7 @@ export default function Home() {
       <About />
       <Features />
       <Skills />
+      <Projects />
     </main>
   );
 }
