@@ -16,7 +16,7 @@ export const Features = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const yValues = [-100, -200, -300];
+  const yValues = [-100, 0, 100];
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -25,7 +25,7 @@ export const Features = () => {
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1,
+          scrub: 3,
         },
       });
       tl.from(marqueeRefs.current, { y: (i) => yValues[i] }, 0);

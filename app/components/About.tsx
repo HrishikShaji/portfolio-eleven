@@ -15,7 +15,7 @@ export const About = () => {
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1,
+          scrub: 3,
         },
       });
       tl.to(paraRef.current, { y: -200 }, 0);
@@ -25,7 +25,7 @@ export const About = () => {
   }, []);
   return (
     <div ref={containerRef} className="px-10 w-full">
-      <p ref={paraRef} className="text-2xl text-white ">
+      <p ref={paraRef} className="smooth text-2xl text-white ">
         {data.about.description}
       </p>
     </div>
