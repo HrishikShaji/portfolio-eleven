@@ -1,6 +1,6 @@
 export const Contact = () => {
 	return (
-		<div className="h-screen w-full bg-white p-10 flex flex-col gap-20 ">
+		<div className="h-screen  w-full bg-white p-10 flex flex-col gap-20 ">
 			<h1 className="text-8xl text-black">Contact</h1>
 			<form className="flex flex-col gap-4 w-[50%]">
 				<input
