@@ -61,7 +61,7 @@ export const Projects = () => {
       className="px-10 pt-40 relative text-white  h-[1700px]  w-full"
       ref={containerRef}
     >
-      <h1 className="text-9xl  text-white" ref={titleRef}>
+      <h1 className="text-9xl font-righteous text-white" ref={titleRef}>
         MY PROJECTS
       </h1>
       <div className=" bg-teal-500 gap-20 w-full ">
