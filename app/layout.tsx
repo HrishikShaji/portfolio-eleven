@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins, Righteous } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+});
+const poppins = Poppins({
+	weight: "400",
+	subsets: ["latin"],
+	variable: "--font-poppins",
+	display: "swap",
+});
+
+const righteous = Righteous({
+	weight: "400",
+	subsets: ["latin"],
+	variable: "--font-righteous",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -17,9 +34,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body
+				className={`${inter.variable} ${poppins.variable} ${righteous.variable}`}
+			>
 				<Navbar />
-				{children}</body>
+				{children}
+			</body>
 		</html>
 	);
 }

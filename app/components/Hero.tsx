@@ -32,7 +32,7 @@ export const Hero = () => {
 			<div className=" absolute top-40 left-10 flex flex-col gap-2">
 				<h1
 					ref={(el) => (headingRefs.current[0] = el)}
-					className="text-6xl text-white smooth"
+					className="text-6xl font-righteous text-white smooth"
 				>
 					ANAKIN SKYWALKER.
 				</h1>
