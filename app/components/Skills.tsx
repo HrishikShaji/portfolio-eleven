@@ -34,8 +34,10 @@ export const Skills = () => {
 				scrollTrigger: {
 					trigger: containerRef.current,
 					start: "top center",
-					end: "top 30%",
+					end: "top 25%",
 					scrub: true,
+					once: true,
+					markers: true,
 				},
 				onComplete: playBar,
 			});
@@ -57,13 +59,17 @@ export const Skills = () => {
 							className="text-white flex flex-col gap-2  items-center justify-end"
 						>
 							<div
-								ref={(el) => (barRefs.current[i] = el)}
+								className="w-full overflow-hidden rounded-t-md"
 								style={{ height: `${(skill.level / 10) * 300}px` }}
-								className="w-full rounded-t-md bg-white "
-							/>
+							>
+								<div
+									ref={(el) => (barRefs.current[i] = el)}
+									className="w-full  bg-white h-full"
+								/>
+							</div>
 							<h1
 								ref={(el) => (nameRefs.current[i] = el)}
-								className="flex-shrink-0 text-red-500"
+								className="flex-shrink-0 text-white"
 							>
 								{skill.name}
 							</h1>
