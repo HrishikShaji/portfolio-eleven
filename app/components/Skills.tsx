@@ -17,7 +17,9 @@ export const Skills = () => {
   ];
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width:800px)", () => {
       const tl = gsap.timeline();
       const barTween = gsap.from(barRefs.current, {
         paused: true,
@@ -43,7 +45,7 @@ export const Skills = () => {
       });
     });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
