@@ -10,6 +10,8 @@ import { data } from "./lib/data";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
+import { useEffect, useState } from "react";
+import { Preloader } from "./components/Preloader";
 
 gsap.registerPlugin(ScrollTrigger);
 
