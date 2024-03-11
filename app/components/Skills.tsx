@@ -1,9 +1,10 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { data } from "../lib/data";
 import gsap from "gsap";
 
 export const Skills = () => {
   const barRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const horizontalBarRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const nameRefs = useRef<(HTMLHeadingElement | null)[]>([]);
 
@@ -16,7 +17,7 @@ export const Skills = () => {
     1.2, 1.5, 1.8, 2.5, 2, 1.5, 1, 1.7, 1.5, 2.5, 2.6, 1, 0.7, 1.9, 2.3, 2,
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let mm = gsap.matchMedia();
 
     mm.add("(min-width:800px)", () => {
@@ -50,18 +51,27 @@ export const Skills = () => {
 
   return (
     <div
-      className="px-10 text-white h-full  w-full overflow-y-hidden"
+      className="p-10 text-white h-full  w-full overflow-y-hidden"
       ref={containerRef}
     >
       <div className="flex flex-col gap-4">
-        <div className="flex justify-between w-full ">
+        <div className="flex flex-col sm:flex-row justify-between w-full ">
           {data.skills.data.map((skill, i) => (
             <div
               key={i}
-              className="text-white flex flex-col gap-2  items-center justify-end"
+              className="text-white flex flex-col gap-2  sm:items-center  justify-end"
             >
               <div
-                className="w-full overflow-hidden rounded-t-md"
+                className="h-4 overflow-hidden  sm:hidden rounded-r-md"
+                style={{ width: `${(skill.level / 10) * 300}px` }}
+              >
+                <div
+                  ref={(el) => (horizontalBarRefs.current[i] = el)}
+                  className="w-full  bg-white h-full"
+                />
+              </div>
+              <div
+                className="w-full overflow-hidden hidden sm:block rounded-t-md"
                 style={{ height: `${(skill.level / 10) * 300}px` }}
               >
                 <div

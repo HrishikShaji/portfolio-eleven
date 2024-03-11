@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { data } from "../lib/data";
-import { useLayoutEffect, useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
@@ -15,7 +15,7 @@ export const Projects = () => {
     -250, -500, -800, -500, -700, -1020, -580, -900, -640, -700, -900, -740,
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
