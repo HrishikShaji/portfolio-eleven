@@ -39,7 +39,6 @@ export const Skills = () => {
           start: "top 70%",
           end: "top 35%",
           scrub: true,
-          markers: true,
           once: true,
         },
         onComplete: playBar,

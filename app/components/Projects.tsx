@@ -15,8 +15,28 @@ export const Projects = () => {
     -250, -500, -800, -500, -700, -1020, -580, -900, -640, -700, -900, -740,
   ];
 
+  const coordinates = [
+    { top: "500px", left: "50px" },
+    { top: "500px", left: "570px" },
+    { top: "500px", left: "1100px" },
+    { top: "1000px", left: "90px" },
+    { top: "1000px", left: "500px" },
+    { top: "1000px", left: "1050px" },
+    { top: "1500px", left: "150px" },
+    { top: "1500px", left: "700px" },
+    { top: "1500px", left: "1130px" },
+    { top: "2000px", left: "70px" },
+    { top: "2000px", left: "500px" },
+    { top: "2000px", left: "1000px" },
+  ];
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width:800px)", () => {
+      gsap.set(projectRefs.current, {
+        top: (i) => coordinates[i].top,
+        left: (i) => coordinates[i].left,
+      });
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -38,40 +58,27 @@ export const Projects = () => {
       }
     });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
-
-  const coordinates = [
-    { top: "500px", left: "50px" },
-    { top: "500px", left: "570px" },
-    { top: "500px", left: "1100px" },
-    { top: "1000px", left: "90px" },
-    { top: "1000px", left: "500px" },
-    { top: "1000px", left: "1050px" },
-    { top: "1500px", left: "150px" },
-    { top: "1500px", left: "700px" },
-    { top: "1500px", left: "1130px" },
-    { top: "2000px", left: "70px" },
-    { top: "2000px", left: "500px" },
-    { top: "2000px", left: "1000px" },
-  ];
 
   return (
     <div
       id="projects"
-      className="px-10 pt-40 hidden relative text-white  h-[1700px]  w-full"
+      className="p-10 pt-40  relative text-white h-full sm:h-[1700px]  w-full"
       ref={containerRef}
     >
-      <h1 className="text-9xl font-righteous text-white" ref={titleRef}>
+      <h1
+        className="text-6xl sm:text-9xl font-righteous text-white"
+        ref={titleRef}
+      >
         MY PROJECTS
       </h1>
-      <div className=" bg-teal-500 gap-20 w-full ">
+      <div className="mt-20 sm:mt-0  gap-20 grid grid-cols-2 w-full ">
         {data.projects.data.map((project, i) => (
           <div
             ref={(el) => (projectRefs.current[i] = el)}
             key={i}
-            className="absolute h-[300px] w-[300px] overflow-hidden"
-            style={{ top: coordinates[i].top, left: coordinates[i].left }}
+            className="sm:absolute h-[100px] w-[100px] sm:h-[300px] sm:w-[300px] overflow-hidden"
           >
             <Image
               src={project.img}
